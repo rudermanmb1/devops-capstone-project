@@ -199,7 +199,8 @@ class TestAccountService(TestCase):
             self.assertEqual(response.headers.get(key), value)
 
     def test_security_headers_Origin(self):
-        """It should return security headers"""
+        """It should return security headers Origin"""
         response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.headers.get('Access-Control-Allow-Origin'), '*')
+    
